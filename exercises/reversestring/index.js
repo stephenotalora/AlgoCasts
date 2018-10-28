@@ -9,10 +9,9 @@
 // O(n) time
 function reverse(str) {
   let result = '';
-  const len = str.length;
 
-  for (let i = 0; i < len; ++i) {
-    result = str.charAt(i) + result;
+  for (let char of str) {
+    result = char + result;
   }
 
   return result;
