@@ -1,5 +1,7 @@
 const fizzBuzz = require('./index');
 
+console.log = jest.fn();
+
 test('fizzBuzz function is defined', () => {
   expect(fizzBuzz).toBeDefined();
 });
