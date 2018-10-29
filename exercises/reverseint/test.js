@@ -1,4 +1,5 @@
-const reverseInt = require('./index');
+/* eslint-disable no-undef */
+const { reverseInt } = require('./index');
 
 test('ReverseInt function exists', () => {
   expect(reverseInt).toBeDefined();

@@ -7,6 +7,41 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+// O(n)
+/*
+function reverse(str) {
+  if (!str) return str; 
 
-module.exports = palindrome;
+  let reversed = '';
+
+  for (const char of str) {
+    reversed = char + reversed;
+  }
+
+  return reversed;
+}
+
+// O(n) time
+function palindrome(str) {
+  return reverse(str) === str;
+}
+*/
+
+// constant time constant space complexity
+function palindrome(str) {
+  const len = str.length;
+  let s = 0, e = len - 1;
+  
+  while(s < e) {
+    if (str.charAt(s) !== str.charAt(e)) return false;
+    ++s; --e;
+  }
+
+  return true;
+}
+
+// Test from example
+// console.log(palindrome('abba'));
+// console.log(palindrome('abcdefg'));
+
+module.exports = { palindrome };
