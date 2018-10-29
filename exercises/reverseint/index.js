@@ -10,7 +10,7 @@
 
 const DECIMAL = 10;
 
-// constime time
+// constime time inplace reversal
 function reverseInt(n) {
   let result = 0;
   let input = n < 0 ? n * -1 : n;
@@ -20,7 +20,7 @@ function reverseInt(n) {
     input = Math.floor(input / DECIMAL);
   }
 
-  return n < 0 ? result * -1 : result;
+  return result * Math.sign(n);
 }
 
 // results from example:
