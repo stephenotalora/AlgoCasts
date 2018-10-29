@@ -8,13 +8,14 @@
 // O(n)
 function maxChar(str) {
   const set = {};
+  
+  let reps = 0;
+  let result = '';
 
   for (const char of str) {
-    if (set[char] >= 0) set[char] += 1;
-    else set[char] = 1;
+    set[char] = set[char] + 1 || 1;
   }
 
-  let result = '', reps = 0;
   for (const char in set) {
     if (set[char] > reps) {
       result = char;
