@@ -22,9 +22,12 @@ function charCount (str) {
 function anagrams(stringA, stringB) {
   const setA = charCount(stringA);
   const setB = charCount(stringB);
-  const longSet = stringA.length >= stringB.length ? setA : setB;
+  
+  if (Object.keys(setA).length !== Object.keys(setB).length) {
+    return false;
+  }
 
-  for (const char in longSet) {
+  for (const char in setA) {
     if (!(setB[char] && setB[char] === setA[char])) return false;
   }
 
