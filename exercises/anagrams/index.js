@@ -10,10 +10,10 @@
 
 function charCount (str) {
   const counts = {};
+  const targetStr = str.replace(/[^\w]/g, '').toLowerCase();
 
   for (const char of str) {
-    if (!(char >= 'a' && char <= 'z' || char >= 'A' && char <= 'Z')) continue;
-    counts[char.toLowerCase()] = counts[char.toLowerCase()] + 1 || 1;
+    counts[char] = counts[char] + 1 || 1;
   }
 
   return counts;
@@ -22,9 +22,9 @@ function charCount (str) {
 function anagrams(stringA, stringB) {
   const setA = charCount(stringA);
   const setB = charCount(stringB);
-  const set = stringA.length >= stringB.length ? setA : setB;
+  const longSet = stringA.length >= stringB.length ? setA : setB;
 
-  for (const char in set) {
+  for (const char in longSet) {
     if (!(setB[char] && setB[char] === setA[char])) return false;
   }
 
