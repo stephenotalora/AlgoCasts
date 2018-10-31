@@ -8,31 +8,45 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function charCount (str) {
-  const counts = {};
-  const targetStr = str.replace(/[^\w]/g, '').toLowerCase();
+const compare = (a, b) => a > b;
 
-  for (const char of str) {
-    counts[char] = counts[char] + 1 || 1;
-  }
-
-  return counts;
+function format(str) {
+  if (!(str && str.length)) return '';
+  return str.replace(/[^\w]/g, '')
+    .toLowerCase().split('')
+    .sort().join();
 }
 
 function anagrams(stringA, stringB) {
-  const setA = charCount(stringA);
-  const setB = charCount(stringB);
-  
-  if (Object.keys(setA).length !== Object.keys(setB).length) {
-    return false;
-  }
-
-  for (const char in setA) {
-    if (!(setB[char] && setB[char] === setA[char])) return false;
-  }
-
-  return true;
+  return format(stringA) === format(stringB);
 }
+
+// function charCount (str) {
+//   const counts = {};
+//   const targetStr = str.replace(/[^\w]/g, '').toLowerCase();
+
+//   for (const char of str) {
+//     counts[char] = counts[char] + 1 || 1;
+//   }
+
+//   return counts;
+// }
+
+// O(n) run time, exponential complexity
+// function anagrams(stringA, stringB) {
+//   const setA = charCount(stringA);
+//   const setB = charCount(stringB);
+  
+//   if (Object.keys(setA).length !== Object.keys(setB).length) {
+//     return false;
+//   }
+
+//   for (const char in setA) {
+//     if (!(setB[char] && setB[char] === setA[char])) return false;
+//   }
+
+//   return true;
+// }
 
 // test from examples
 // console.log(anagrams('rail safety', 'fairy tales'));
