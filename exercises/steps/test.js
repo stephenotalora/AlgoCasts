@@ -1,4 +1,8 @@
-const steps = require('./index');
+const { steps } = require('./index');
+
+beforeAll(() => {
+  console.log = jest.fn();
+});
 
 beforeEach(() => {
   jest.spyOn(console, 'log');
