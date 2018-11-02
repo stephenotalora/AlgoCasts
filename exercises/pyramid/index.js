@@ -15,21 +15,24 @@
 //       '#####'
 
 function pyramid(n) {
-  const middle = Math.floor(n / 2);
-  console.log(middle);
+  const maxColumns = n * 2 - 1;
+  const middle = Math.floor(maxColumns / 2);
 
-  for (let row = 0; row < n; ++row) {
+  for (let row = 0, filledColumns = 1; row < n; ++row, filledColumns += 2) {
     let result = '';
 
-    for (let column = 0; column <= n; ++column) {
-      if (column === middle) result += '#';
-      else result += ' ';
+    for (let column = 0; column < maxColumns; ++column) {
+      const total = Math.floor(filledColumns / 2);
+      result += column >= middle - total && column <= middle + total ? '#' : ' ';
     }
 
     console.log(result);
   }
 }
 
-pyramid(2);
+// test from excercises
+// pyramid(1);
+// pyramid(2);
+// pyramid(3);
 
-module.exports = pyramid;
+module.exports = { pyramid };
